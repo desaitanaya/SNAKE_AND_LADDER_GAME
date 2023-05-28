@@ -12,13 +12,40 @@ namespace SnakeLadderGame
 
         public int playerPosition = 0;
 
-        public int diceRoll1;
+        public int diceRoll;
 
         public bool endOfGame = false;
 
+        Random random = new Random();
+
+        public int DiceRolled97()
+        {
+            diceRoll = random.Next(1, 4);
+            return diceRoll;
+        }
+
+        public int DiceRolled98()
+        {
+            diceRoll = random.Next(1, 3);
+            return diceRoll;
+        }
+
+        public int DiceRolled99()
+        {
+            diceRoll = random.Next(1, 2);
+            return diceRoll;
+        }
+
+        public void Display(int diceRoll)
+        {
+            Console.WriteLine("Dice Rolled : " + diceRoll);
+            playerPosition += diceRoll;
+            Console.WriteLine("Position of Player " +playerName+ " : " + playerPosition);
+            Console.WriteLine("---------------------------------------");
+        }
+
         public void DiceRoll()
         {
-            Random random = new Random();
             Dictionary<int, int> snake = new Dictionary<int, int>
             {
                 {37 ,3}, //Snake: from 37 to 3
@@ -42,15 +69,9 @@ namespace SnakeLadderGame
 
             while (!endOfGame)
             {
-
+               
                 int diceRoll = random.Next(1, 7);
-                Console.WriteLine("Dice Rolled :" + diceRoll);
-
-                playerPosition += diceRoll;
-                Console.WriteLine("Position of Player : " + playerPosition);
-                Console.WriteLine("---------------------------------------");
-
-
+                Display(diceRoll);
 
                 if (snake.ContainsKey(playerPosition))
                 {
@@ -86,38 +107,21 @@ namespace SnakeLadderGame
                         if (playerPosition == 95)
                         {
                             diceRoll = random.Next(1, 6);
-                            Console.WriteLine("Dice Rolled : " + diceRoll);
-                            playerPosition += diceRoll;
-                            Console.WriteLine("Position of Player : " + playerPosition);
-                            Console.WriteLine("---------------------------------------");
+                            Display(diceRoll);
 
                             if (playerPosition == 97)
-
                             {
-                                diceRoll = random.Next(1, 4);
-                                Console.WriteLine("Dice Rolled : " + diceRoll);
-                                playerPosition += diceRoll;
-                                Console.WriteLine("Position of Player : " + playerPosition);
-                                Console.WriteLine("---------------------------------------");
-
-
+                                diceRoll = DiceRolled97();
+                               
                                 if (playerPosition == 98)
                                 {
-                                    diceRoll = random.Next(1, 3);
-                                    Console.WriteLine("Dice Rolled : " + diceRoll);
-                                    playerPosition += diceRoll;
-                                    Console.WriteLine("Position of Player : " + playerPosition);
-                                    Console.WriteLine("---------------------------------------");
-
+                                    diceRoll = DiceRolled98();
+                                    Display(diceRoll);
 
                                     if (playerPosition == 99)
                                     {
-                                        diceRoll = random.Next(1, 2);
-                                        Console.WriteLine("Dice Rolled : " + diceRoll);
-                                        playerPosition += diceRoll;
-                                        Console.WriteLine("Position of Player : " + playerPosition);
-                                        Console.WriteLine("---------------------------------------");
-
+                                        diceRoll = DiceRolled99();
+                                        Display(diceRoll);
                                     }
                                 }
                             }
@@ -125,63 +129,39 @@ namespace SnakeLadderGame
 
                         if (playerPosition == 97)
                         {
-                            diceRoll = random.Next(1, 4);
-                            Console.WriteLine("Dice Rolled : " + diceRoll);
-                            playerPosition += diceRoll;
-                            Console.WriteLine("Position of Player : " + playerPosition);
-                            Console.WriteLine("---------------------------------------");
-
+                            diceRoll = DiceRolled97();
+                            Display(diceRoll);
 
                             if (playerPosition == 98)
                             {
-                                diceRoll = random.Next(1, 3);
-                                Console.WriteLine("Dice Rolled : " + diceRoll);
-                                playerPosition += diceRoll;
-                                Console.WriteLine("Position of Player : " + playerPosition);
-                                Console.WriteLine("---------------------------------------");
-
+                                diceRoll = DiceRolled98();
+                                Display(diceRoll);
 
                                 if (playerPosition == 99)
                                 {
-                                    diceRoll = random.Next(1, 2);
-                                    Console.WriteLine("Dice Rolled : " + diceRoll);
-                                    playerPosition += diceRoll;
-                                    Console.WriteLine("Position of Player : " + playerPosition);
-                                    Console.WriteLine("---------------------------------------");
-
+                                    diceRoll = DiceRolled99();
+                                    Display(diceRoll);
                                 }
                             }
                         }
 
                         if (playerPosition == 98)
                         {
-                            diceRoll = random.Next(1, 3);
-                            Console.WriteLine("Dice Rolled : " + diceRoll);
-                            playerPosition += diceRoll;
-                            Console.WriteLine("Position of Player : " + playerPosition);
-                            Console.WriteLine("---------------------------------------");
-
+                            diceRoll = DiceRolled98();
+                            Display(diceRoll);
 
                             if (playerPosition == 99)
                             {
-                                diceRoll = random.Next(1, 2);
-                                Console.WriteLine("Dice Rolled : " + diceRoll);
-                                playerPosition += diceRoll;
-                                Console.WriteLine("Position of Player : " + playerPosition);
-                                Console.WriteLine("---------------------------------------");
-
+                                diceRoll = DiceRolled99();
+                                Display(diceRoll);
                             }
 
                         }
 
                         if (playerPosition == 99)
                         {
-                            diceRoll = random.Next(1, 2);
-                            Console.WriteLine("Dice Rolled : " + diceRoll);
-                            playerPosition += diceRoll;
-                            Console.WriteLine("Position of Player : " + playerPosition);
-                            Console.WriteLine("---------------------------------------");
-
+                            diceRoll = DiceRolled99();
+                            Display(diceRoll);
                         }
 
                         if (playerPosition >= 100)
@@ -196,6 +176,4 @@ namespace SnakeLadderGame
         }
 
     }
-
-
 }
